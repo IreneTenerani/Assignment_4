@@ -4,7 +4,7 @@ import scipy
 from scipy.interpolate import InterpolatedUnivariateSpline
 from scipy.stats import norm
 from scipy.optimize import curve_fit
-
+#pylint: disable=invalid-name
 
 class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
 
@@ -33,15 +33,6 @@ class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
 
     def rnd(self, size=1000):
         return self.ppf(np.random.uniform(size=size))
-
-
-    def draw(self):
-        a=np.linspace(0, 1, 100)
-        plt.plot(self._x, self._y, 'bo')
-        plt.plot(a, self.spl(a), 'r-')
-        plt.plot(a, self.ppf(a), 'y')
-        plt.plot(a, self.cdf(a), 'b')
-        plt.show()
 
     def __str__(self):
         return str((tuple(self._x), tuple(self._y)))
