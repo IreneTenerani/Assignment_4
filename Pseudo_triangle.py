@@ -4,7 +4,7 @@ import scipy
 from scipy.interpolate import InterpolatedUnivariateSpline
 from scipy.stats import norm
 from scipy.optimize import curve_fit
-
+#pylint: disable=invalid-name
 
 class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
 
